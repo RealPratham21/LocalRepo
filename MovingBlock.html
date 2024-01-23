@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <style>
+        body{
+            margin: 0px 0px;
+        }
+        #box1{
+            position: relative;
+            background-color: lightgreen;
+            width: 300px;
+            height: 300px;
+            font-size: 4.1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        MOVE ME! 🤩
+    </div>
+</body>
+<script>
+    let x = 0;
+    let y = 0;
+    document.addEventListener("keyup", (event)=>{
+        document.getElementById('box1').textContent = `MOVE ME! 🤩`;
+    })
+    document.addEventListener("keydown", (event)=>{
+        event.preventDefault();
+        if (event.key.startsWith("Arrow")){
+            document.getElementById('box1').textContent = "Moving! 🤠";
+            switch(event.key){
+                case "ArrowUp":
+                    y -= 10;
+                    break;
+                case "ArrowDown":
+                    y += 10;
+                    break;
+                case "ArrowLeft":
+                    x -= 10;
+                    break;
+                case "ArrowRight":
+                    x += 10;
+                    break;
+            }
+        document.getElementById('box1').style.top = `${y}px`;
+        document.getElementById('box1').style.left = `${x}px`;
+        }
+    })
+</script>   
+</html>
